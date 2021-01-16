@@ -34,11 +34,13 @@ app.use(methodOverride('_method'));
 app.use(express.static(path.join(__dirname, 'public')));
 
 const sessionConfig = {
+    name: 'session',            //name of session cookie
     secret: "Hellohiibyebye",
     resave: false,
     saveUninitialized: true,
     cookie: {
         httpOnly: true,
+        //secure: true,
         expires: Date.now() + 1000 * 60 * 60 * 24 * 7,      // (1000 * 60 * 60 * 24 * 7) means 7 days in milisecond
         maxAge: 1000 * 60 * 60 * 24 * 7                       
     }
